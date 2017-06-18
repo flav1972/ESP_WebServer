@@ -18,6 +18,9 @@
 #include "flip.h"
 #include "params.h"
 #include "server.h"
+
+ADC_MODE(ADC_VCC);
+
 extern void attach_events(); // in events.cpp
 
 bool re_connect = false;
@@ -72,6 +75,10 @@ void setup() {
 
   Serial.println();
 
+  Serial.println("Last Station used:");
+  Serial.print("SSID: "); Serial.println(WiFi.SSID());
+  Serial.print("password: "); Serial.println(WiFi.psk());
+  
   /* Attach Wifi Events */
   attach_events();
 
